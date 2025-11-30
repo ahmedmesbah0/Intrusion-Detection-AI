@@ -55,7 +55,7 @@ The model achieves the following performance on the UNSW-NB15 test set:
 ### Installation
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/Intrusion-Detection-AI.git
+    git clone https://github.com/ahmedmesbah0/Intrusion-Detection-AI.git
     cd Intrusion-Detection-AI
     ```
 2.  Install dependencies:
