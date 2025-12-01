@@ -1,84 +1,152 @@
-# Sequence-Level Intrusion Detection System
+# Intrusion Detection System: CNN+LSTM Autoencoder
 
-## Overview
-This project implements a **Sequence-Level Intrusion Detection System** using a hybrid **1D-CNN + LSTM Autoencoder** architecture. The system is designed to detect anomalous or malicious network sessions by analyzing sequential patterns of network flows. It is trained on the **UNSW-NB15** dataset.
+A student-level cybersecurity project for detecting network intrusions using the UNSW-NB15 dataset with a hybrid 1D Convolutional Neural Network (CNN) + LSTM Autoencoder architecture.
 
-## Key Features
-- **Hybrid Architecture**: Combines 1D-CNN for spatial feature extraction and LSTM for temporal dependency modeling.
-- **Unsupervised/Semi-supervised Learning**: Trained only on normal traffic to learn a baseline of "normality".
-- **Anomaly Detection**: Detects attacks by measuring the reconstruction error of network sequences.
-- **Sequence Modeling**: Analyzes sequences of network flows (e.g., 10 consecutive flows) rather than isolated packets.
+## 🎯 Project Goal
 
-## Model Architecture
-The model consists of two main parts:
-1.  **Encoder**:
-    -   **1D-CNN**: Extracts high-level features from the input sequence of flow attributes.
-    -   **LSTM**: Compresses the temporal sequence into a fixed-size latent vector.
-2.  **Decoder**:
-    -   **LSTM**: Reconstructs the sequence from the latent vector.
-    -   **TimeDistributed Dense**: Maps the LSTM output back to the original feature space.
+Build an intelligent intrusion detection system that can automatically recognize abnormal or malicious network activity by analyzing sequential patterns of network flows. The system uses deep learning to model normal network behavior and detect anomalies through reconstruction error analysis.
 
-## Results
-The model achieves the following performance on the UNSW-NB15 test set:
+## 📊 Dataset
 
-- **ROC AUC**: **0.81**
-- **F1 Score**: **0.82**
-- **Precision**: **0.79**
-- **Recall**: **0.85**
+**UNSW-NB15 Dataset** (Available on Kaggle)
+- Contains 49 features per network flow
+- Includes packet count, byte rate, flags, protocol information, etc.
+- Traffic includes normal and nine attack categories:
+  - Fuzzers
+  - DoS (Denial of Service)
+  - Exploits
+  - Reconnaissance
+  - Shellcode
+  - Analysis
+  - Backdoor
+  - Generic
+  - Worms
 
-### Visualizations
-| Reconstruction Error | Confusion Matrix | ROC Curve |
-|:--------------------:|:----------------:|:---------:|
-| ![Error Distribution](models/error_distribution.png) | ![Confusion Matrix](models/confusion_matrix.png) | ![ROC Curve](models/roc_curve.png) |
+## 🏗️ Architecture
 
-## Project Structure
+The project uses a hybrid deep learning approach:
+
+1. **1D CNN Layers**: Extract spatial correlations among packet/flow features
+2. **LSTM Autoencoder**: Capture temporal dependencies and reconstruct normal network behavior
+3. **Anomaly Detection**: Identify sequences with high reconstruction error as potential intrusions
+
+## 📁 Project Structure
+
 ```
-├── data/               # Data directory (ignored in git)
-├── dataset_kaggle/     # Raw dataset directory (ignored in git)
-├── models/             # Saved models and evaluation plots
-├── src/                # Source code
-│   ├── data_preprocessing.py  # Data loading and processing
-│   ├── model.py               # Model architecture definition
-│   ├── train.py               # Training script
-│   └── evaluate.py            # Evaluation and plotting script
-├── requirements.txt    # Python dependencies
-└── README.md           # Project documentation
+Intrusion-Detection-AI/
+├── data/                          # Dataset directory (UNSW-NB15 CSV files)
+├── saved_models/                  # Trained model checkpoints
+├── preprocessed_data/             # Intermediate processed files
+├── 1_preprocessing.ipynb          # Data loading and preprocessing
+├── 2_visualization.ipynb          # Exploratory data analysis
+├── 3_model_training.ipynb         # Model architecture and training
+├── requirements.txt               # Python dependencies
+└── README.md                      # This file
 ```
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
-- Python 3.8+
-- TensorFlow 2.x
-- Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn
+
+- Python 3.8 or higher
+- Jupyter Notebook or JupyterLab
+- Kaggle account (for dataset download)
 
 ### Installation
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/ahmedmesbah0/Intrusion-Detection-AI.git
-    cd Intrusion-Detection-AI
-    ```
-2.  Install dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
 
-### Data Setup
-1.  Download the **UNSW-NB15** dataset from [Kaggle](https://www.kaggle.com/datasets/mrwellsdavid/unsw-nb15).
-2.  Place the CSV files (`UNSW_NB15_training-set.csv`, `UNSW_NB15_testing-set.csv`) in a directory named `dataset_kaggle/` (or update the path in `src/data_preprocessing.py`).
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd Intrusion-Detection-AI
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Download the UNSW-NB15 Dataset**:
+   - Visit [UNSW-NB15 on Kaggle](https://www.kaggle.com/datasets/mrwellsdavid/unsw-nb15)
+   - Download the dataset files
+   - Place the CSV files in the `data/` directory:
+     - `UNSW_NB15_training-set.csv`
+     - `UNSW_NB15_testing-set.csv`
 
 ### Usage
-1.  **Train the Model**:
-    ```bash
-    python3 src/train.py
-    ```
-    This will train the autoencoder on normal traffic and save the model to `models/anomaly_detector.keras`.
 
-2.  **Evaluate the Model**:
-    ```bash
-    python3 src/evaluate.py
-    ```
-    This will generate performance metrics and save plots to the `models/` directory.
+Run the notebooks in order:
 
-## License
-This project is licensed under the MIT License.
+1. **Preprocessing** (`1_preprocessing.ipynb`):
+   ```bash
+   jupyter notebook 1_preprocessing.ipynb
+   ```
+   - Loads and cleans the dataset
+   - Engineers features and creates sequences
+   - Saves preprocessed data for subsequent notebooks
+
+2. **Visualization** (`2_visualization.ipynb`):
+   ```bash
+   jupyter notebook 2_visualization.ipynb
+   ```
+   - Performs exploratory data analysis
+   - Visualizes feature distributions and attack patterns
+   - Creates correlation heatmaps and insights
+
+3. **Model Training** (`3_model_training.ipynb`):
+   ```bash
+   jupyter notebook 3_model_training.ipynb
+   ```
+   - Builds the CNN+LSTM Autoencoder model
+   - Trains on normal traffic patterns
+   - Evaluates intrusion detection performance
+   - Generates comprehensive results and visualizations
+
+## 📈 Expected Results
+
+The model is expected to achieve:
+- **Accuracy**: >80% on test set
+- **Precision/Recall**: Balanced detection of various attack types
+- **AUC-ROC**: >0.85 for binary classification (normal vs attack)
+
+## 📚 Learning Objectives
+
+Through this project, you will learn:
+- How to preprocess flow-based network features
+- Creating meaningful sequences from network traffic data
+- Applying 1D CNNs for spatial feature extraction
+- Using LSTM Autoencoders for temporal dependency modeling
+- Anomaly detection through reconstruction error analysis
+- Evaluating cybersecurity models with appropriate metrics
+
+## 🛠️ Technical Details
+
+- **Framework**: TensorFlow/Keras
+- **Data Processing**: Pandas, NumPy, Scikit-learn
+- **Visualization**: Seaborn, Matplotlib
+- **Model Type**: Unsupervised anomaly detection (trained on normal traffic)
+
+## 📝 Documentation
+
+Each Jupyter notebook contains detailed markdown cells explaining:
+- The purpose of each step
+- Technical concepts and terminology
+- Code explanations and comments
+- Interpretation of results
+
+## 🤝 Contributing
+
+This is a student-level educational project. Feel free to:
+- Experiment with different architectures
+- Try alternative preprocessing techniques
+- Adjust hyperparameters
+- Extend the visualization analysis
+
+## 📄 License
+
+This project is for educational purposes.
+
+## 🙏 Acknowledgments
+
+- UNSW-NB15 Dataset creators
+- TensorFlow and Keras communities
+- Cybersecurity research community
