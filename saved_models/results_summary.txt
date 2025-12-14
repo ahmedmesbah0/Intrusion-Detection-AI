@@ -1,0 +1,22 @@
+============================================================
+INTRUSION DETECTION SYSTEM - RESULTS SUMMARY
+============================================================
+
+Model Architecture            : CNN + LSTM Autoencoder
+Sequence Length               : 10
+Number of Features            : 42
+Training Samples (Normal)     : 10353
+Test Samples                  : 4940
+Detection Threshold           : 0.012750
+Accuracy                      : 0.600000
+Precision                     : 0.862707
+Recall                        : 0.325616
+F1-Score                      : 0.472785
+ROC AUC                       : 0.734782
+PR AUC                        : 0.772285
+True Negatives                : 2078
+False Positives               : 141
+False Negatives               : 1835
+True Positives                : 886
+
+============================================================
