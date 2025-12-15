@@ -157,7 +157,7 @@ Output: (batch_size, 10, 42)
 
 ### 4.1 Notebook 1: Data Preprocessing
 
-**File:** `1_preprocessing.ipynb`
+**File:** [1_preprocessing.ipynb](file:///home/mesbah7/Github/Repos/Intrusion-Detection-AI/1_preprocessing.ipynb)
 
 **Key Steps:**
 
@@ -195,7 +195,7 @@ Output: (batch_size, 10, 42)
 
 ### 4.2 Notebook 2: Data Visualization
 
-**File:** `2_visualization.ipynb`
+**File:** [2_visualization.ipynb](file:///home/mesbah7/Github/Repos/Intrusion-Detection-AI/2_visualization.ipynb)
 
 **Key Visualizations:**
 
@@ -221,7 +221,7 @@ Output: (batch_size, 10, 42)
 
 ### 4.3 Notebook 3: Model Training and Evaluation
 
-**File:** `3_model_training.ipynb`
+**File:** [3_model_training.ipynb](file:///home/mesbah7/Github/Repos/Intrusion-Detection-AI/3_model_training.ipynb)
 
 **Key Components:**
 
@@ -412,19 +412,19 @@ jupyter notebook
 
 **Step 3: Run Notebooks in Order**
 
-1. **`1_preprocessing.ipynb`**
+1. **[1_preprocessing.ipynb](file:///home/mesbah7/Github/Repos/Intrusion-Detection-AI/1_preprocessing.ipynb)**
    - Loads and preprocesses raw data
    - Creates sequences
    - Saves preprocessed arrays
    - Runtime: ~5-10 minutes
 
-2. **`2_visualization.ipynb`**
+2. **[2_visualization.ipynb](file:///home/mesbah7/Github/Repos/Intrusion-Detection-AI/2_visualization.ipynb)**
    - Explores data characteristics
    - Generates visualizations
    - Analyzes class distributions
    - Runtime: ~3-5 minutes
 
-3. **`3_model_training.ipynb`**
+3. **[3_model_training.ipynb](file:///home/mesbah7/Github/Repos/Intrusion-Detection-AI/3_model_training.ipynb)**
    - Builds and trains the model
    - Evaluates performance
    - Saves trained model
