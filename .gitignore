@@ -20,24 +20,35 @@ wheels/
 .installed.cfg
 *.egg
 
+# Virtual Environment
+venv/
+env/
+ENV/
 
-# Data
-# data/
-# dataset_kaggle/
-# *.csv
-# *.zip
+# Data files (exclude large datasets)
+data/
+dataset_kaggle/
+*.csv
+*.zip
+*.tar.gz
 
-# Models
-models/*.h5
-models/*.keras
-models/*.pkl
-!models/*.png 
-# Keep images for README
+# Preprocessed data
+preprocessed_data/
+
+# Models (exclude trained models but keep structure)
+saved_models/*.h5
+saved_models/*.keras
+saved_models/*.pkl
+!saved_models/.gitkeep
 
 # IDEs
 .vscode/
 .idea/
 .gemini/
 
+# Jupyter Notebook
+.ipynb_checkpoints/
+
 # Logs
 *.log
+

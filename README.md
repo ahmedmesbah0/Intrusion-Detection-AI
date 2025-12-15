@@ -27,14 +27,14 @@ A cybersecurity project for detecting network intrusions using the UNSW-NB15 dat
 
 ## Project Goal
 
-This project builds an intrusion detection system that can spot abnormal or malicious network activity by looking at sequential patterns in network flows. We use deep learning to learn what normal network behavior looks like, then detect anomalies by checking reconstruction errors.
+This project builds an intrusion detection system that can find abnormal or malicious network activity by looking at patterns in network traffic. We use deep learning to learn what normal network behavior looks like, then detect anomalies by checking how well the model can reconstruct the data.
 
 ## Dataset
 
-**UNSW-NB15 Dataset** (you can get it from Kaggle)
+**UNSW-NB15 Dataset** (available on Kaggle)
 - Has 49 features per network flow
-- Includes stuff like packet count, byte rate, flags, protocol info, etc.
-- Traffic includes normal and nine attack types:
+- Includes things like packet count, byte rate, flags, protocol info, etc.
+- Traffic includes normal traffic and nine attack types:
   - Fuzzers
   - DoS (Denial of Service)
   - Exploits
@@ -49,7 +49,7 @@ This project builds an intrusion detection system that can spot abnormal or mali
 
 The project uses a hybrid deep learning approach:
 
-1. **1D CNN Layers**: Gets spatial correlations from packet/flow features
+1. **1D CNN Layers**: Extracts spatial correlations from packet/flow features
 2. **LSTM Autoencoder**: Captures temporal patterns and reconstructs normal network behavior
 3. **Anomaly Detection**: Flags sequences with high reconstruction error as potential intrusions
 
@@ -78,19 +78,19 @@ Intrusion-Detection-AI/
 
 ### Installation
 
-1. Clone the repo:
+1. Clone the repository:
    ```bash
    git clone <repository-url>
    cd Intrusion-Detection-AI
    ```
 
-2. Run the setup script (easiest way):
+2. Run the setup script (recommended):
    ```bash
    chmod +x setup.sh
    ./setup.sh
    ```
 
-   Or do it manually:
+   Or install manually:
    ```bash
    python3 -m venv venv
    source venv/bin/activate
@@ -101,7 +101,7 @@ Intrusion-Detection-AI/
 3. Download the UNSW-NB15 Dataset:
    - Go to [UNSW-NB15 on Kaggle](https://www.kaggle.com/datasets/mrwellsdavid/unsw-nb15)
    - Download the dataset
-   - Put the CSV files in the `dataset_kaggle/` folder:
+   - Place the CSV files in the `dataset_kaggle/` folder:
      - `UNSW_NB15_training-set.csv`
      - `UNSW_NB15_testing-set.csv`
 
