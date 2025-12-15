@@ -7,16 +7,16 @@ Sequence Length               : 10
 Number of Features            : 42
 Training Samples (Normal)     : 11887
 Test Samples                  : 7730
-Detection Threshold           : 0.013099
-Accuracy                      : 0.530401
-Precision                     : 0.934041
-Recall                        : 0.322400
-F1-Score                      : 0.479346
-ROC AUC                       : 0.779286
-PR AUC                        : 0.862030
-True Negatives                : 2429
-False Positives               : 118
-False Negatives               : 3512
-True Positives                : 1671
+Detection Threshold           : 0.012901
+Accuracy                      : 0.526261
+Precision                     : 0.929904
+Recall                        : 0.317384
+F1-Score                      : 0.473245
+ROC AUC                       : 0.768310
+PR AUC                        : 0.858842
+True Negatives                : 2423
+False Positives               : 124
+False Negatives               : 3538
+True Positives                : 1645
 
 ============================================================
